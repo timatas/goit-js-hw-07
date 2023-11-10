@@ -18,25 +18,15 @@ const markup = galleryItems.map(
 gallery.insertAdjacentHTML("beforeend", markup.join(""));
 gallery.addEventListener("click", onClick);
 
-//document.addEventListener("keydown", onClick);
-
 function onClick(evt) {
   evt.preventDefault();
   const galleryCard = evt.target.classList.contains("gallery__image");
   if (!galleryCard) {
     return;
-  } else {
-    const urlChoice = evt.target.dataset.source;
-    const instance = basicLightbox.create(`
+  }
+  const urlChoice = evt.target.dataset.source;
+  const instance = basicLightbox.create(`
     <div class="modal"><img src ="${urlChoice}"
          /></div`);
-    instance.show();
-    //   } else {
-    //     console.log(evt.code);
-    //     if (evt.code === "Escape") {
-    //       instance.close();
-    //     }
-    //     return;
-    //   }
-  }
+  instance.show();
 }
